@@ -4,15 +4,14 @@ FROM python:3.9-slim
 # Establece el directorio de trabajo en el contenedor
 WORKDIR /app
 
-# Copia el archivo de requisitos y el código fuente al contenedor
-COPY requirements.txt requirements.txt
-COPY . .
+# Copia los archivos necesarios al contenedor
+COPY . /app
 
 # Instala las dependencias
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expone el puerto en el que Flask escuchará
+# Expone el puerto en el que la app estará corriendo
 EXPOSE 5000
 
-# Define el comando para ejecutar la aplicación Flask
+# Define el comando para ejecutar la aplicación
 CMD ["python", "app.py"]
